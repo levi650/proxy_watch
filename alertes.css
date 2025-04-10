@@ -1,0 +1,252 @@
+/* ======================================================= */
+/* === Contenu COMPLET pour alertes.css               === */
+/* === NOTE: Duplique des styles de messages.css        === */
+/* ======================================================= */
+
+/* === Variables de Couleur === */
+:root {
+    --bg-color-dark: #000000; /* Noir pur */
+    --bg-color-medium: #1e1e1e; /* Gris très foncé */
+    --bg-color-light: #2a2a2a;  /* Gris un peu moins foncé */
+    --text-color-light: #e0e0e0;
+    --text-color-secondary: #a0a0a0;
+    --primary-blue: #22e3dd;
+    --primary-blue-hover: #22e3dd;
+    --border-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    /* Couleurs spécifiques aux alertes */
+    --alert-warning-bg: rgba(255, 193, 7, 0.1);
+    --alert-warning-border: #ffc107;
+    --alert-critical-bg: rgba(220, 53, 69, 0.1);
+    --alert-critical-border: #dc3545;
+    /* Styles pour messages/profils/paramètres (inclus pour que les variables existent) */
+    /* mais pas strictement nécessaires si ce fichier est *seulement* pour alertes.html */
+}
+
+/* === Styles Généraux === */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color-dark); /* Fond noir */
+    color: var(--text-color-light); /* Texte clair */
+    line-height: 1.6;
+}
+
+/* === En-tête === */
+header {
+    background-color: var(--bg-color-medium);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.logo-container img {
+    display: block;
+    max-height: 40px;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--text-color-light);
+    font-size: 1.8em;
+    text-align: right;
+}
+
+/* === Barre de Navigation === */
+nav {
+    background-color: var(--bg-color-medium);
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+nav a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transition: left 0.4s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    left: 0;
+}
+
+
+nav a:hover {
+    color: var(--text-color-light);
+    background-color: transparent;
+}
+
+nav a.active { /* Style pour le lien actif */
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+/* === Conteneur Principal === */
+.container {
+    max-width: 850px; /* Largeur standard */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* === Section de Contenu === */
+.content {
+    background: linear-gradient(145deg, var(--bg-color-medium), var(--bg-color-light));
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.content h2 {
+    color: var(--primary-blue);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.content h2 i { /* Si vous ajoutez une icône */
+    margin-right: 10px;
+    color: var(--primary-blue);
+}
+
+.content .description {
+    text-align: center;
+    color: var(--text-color-secondary);
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    max-width: 600px; /* Limite largeur description */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Styles Spécifiques aux Alertes === */
+.alert-content h2 { /* Peut-être un style légèrement différent pour le titre des alertes */
+    /* Exemple: color: var(--alert-critical-border); */
+}
+
+.alerts-list-placeholder {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px dashed var(--border-color);
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.alerts-list-placeholder p em {
+    color: var(--text-color-secondary);
+}
+
+/* Styles pour de vraies alertes (si vous décommentez l'HTML exemple) */
+.alert-item {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color-light);
+    font-size: 0.95em;
+    display: flex; /* Pour aligner icône et texte si besoin */
+    align-items: center;
+    gap: 10px;
+}
+/* Optionnel: Icône avant le texte de l'alerte */
+/* .alert-item::before {
+    font-family: "Font Awesome 6 Free"; /* Assurez-vous d'importer Font Awesome
+    font-weight: 900;
+    font-size: 1.1em;
+} */
+
+.alert-item.warning {
+    border-left-color: var(--alert-warning-border);
+    background-color: var(--alert-warning-bg);
+}
+/* .alert-item.warning::before { content: "\f071"; color: var(--alert-warning-border); } */ /* Icon: triangle-exclamation */
+.alert-item.warning strong { color: var(--alert-warning-border); }
+
+
+.alert-item.critical {
+    border-left-color: var(--alert-critical-border);
+    background-color: var(--alert-critical-bg);
+}
+/* .alert-item.critical::before { content: "\f06a"; color: var(--alert-critical-border); } */ /* Icon: circle-exclamation */
+.alert-item.critical strong { color: var(--alert-critical-border); }
+
+/* === Bouton Retour === */
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 20px; /* Style pilule */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: var(--primary-blue);
+    color: var(--bg-color-dark); /* Texte sombre sur fond bleu */
+    transform: translateY(-2px); /* Petit effet de soulèvement */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 10px; padding: 15px; }
+    header h1 { text-align: center; font-size: 1.6em; }
+    nav a { padding: 8px 10px; margin: 0 2px; font-size: 0.9em; }
+    .container { margin: 20px auto; }
+    .content { padding: 20px; }
+    .content h2 { font-size: 1.6em; }
+    .content .description { font-size: 1em; }
+}
+
+@media (max-width: 600px) {
+    /* Ajoutez ici des styles responsives spécifiques aux alertes si nécessaire */
+    .alert-item {
+        font-size: 0.9em; /* Texte un peu plus petit sur mobile */
+    }
+}
+
+/* ======================================================= */
+/* === FIN DU FICHIER alertes.css                      === */
+/* ======================================================= */

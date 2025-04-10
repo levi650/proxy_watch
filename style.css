@@ -1,0 +1,218 @@
+/* === Variables de Couleur === */
+:root {
+    --bg-color-dark: #121212;
+    --bg-color-medium: #1e1e1e;
+    --bg-color-light: #2a2a2a; /* Un peu plus clair pour certains éléments */
+    --text-color-light: #e0e0e0;
+    --text-color-secondary: #a0a0a0;
+    --primary-blue: #22e3dd;
+    --primary-blue-hover: #22e3dd;
+    --border-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    /* Couleurs spécifiques aux alertes (optionnel) */
+    --alert-warning-bg: rgba(255, 193, 7, 0.1);
+    --alert-warning-border: #ffc107;
+    --alert-critical-bg: rgba(220, 53, 69, 0.1);
+    --alert-critical-border: #dc3545;
+}
+
+/* === Styles Généraux === */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    line-height: 1.6;
+}
+
+/* === En-tête === */
+header {
+    background-color: var(--bg-color-medium);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Optionnel: fixe l'en-tête en haut */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.logo-container img {
+    display: block;
+    max-height: 40px;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--text-color-light);
+    font-size: 1.8em;
+    text-align: right;
+}
+
+/* === Barre de Navigation === */
+nav {
+    background-color: var(--bg-color-medium);
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+nav a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative; /* Pour l'effet de soulignement */
+    overflow: hidden; /* Pour l'effet de soulignement */
+}
+
+nav a::after { /* Effet de soulignement créatif */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%; /* Commence hors de l'écran à gauche */
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transition: left 0.4s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    left: 0; /* Fait apparaître le soulignement */
+}
+
+
+nav a:hover {
+    color: var(--text-color-light); /* Change la couleur du texte au survol */
+    background-color: transparent; /* Enlève le fond pour privilégier le soulignement */
+}
+
+nav a.active {
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+/* === Conteneur Principal === */
+.container {
+    max-width: 850px; /* Légèrement plus large pour les alertes */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* === Section de Contenu === */
+.content {
+    background: linear-gradient(145deg, var(--bg-color-medium), var(--bg-color-light)); /* Dégradé subtil */
+    padding: 30px 40px;
+    border-radius: 12px; /* Coins plus arrondis */
+    box-shadow: 0 6px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    overflow: hidden; /* Pour s'assurer que tout reste dans les coins arrondis */
+}
+
+.content h2 {
+    color: var(--primary-blue);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    /* text-shadow: 0 0 5px rgba(0, 123, 255, 0.3); Optionnel: léger halo */
+}
+
+.content h2 i { /* Style pour l'icône si vous l'ajoutez */
+    margin-right: 10px;
+    color: var(--primary-blue);
+}
+
+.content .description {
+    text-align: center;
+    color: var(--text-color-secondary);
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    max-width: 600px; /* Limite la largeur du paragraphe */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Styles Spécifiques aux Alertes (Placeholders) === */
+.alerts-list-placeholder {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.1); /* Fond très léger pour la zone */
+    border-radius: 8px;
+    border: 1px dashed var(--border-color); /* Bordure pointillée */
+    min-height: 100px; /* Hauteur minimale */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.alerts-list-placeholder p em {
+    color: var(--text-color-secondary);
+}
+
+/* Styles pour de futures vraies alertes (décommentez l'HTML pour tester) */
+.alert-item {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05); /* Léger fond */
+}
+
+.alert-item.warning {
+    border-left-color: var(--alert-warning-border);
+    background-color: var(--alert-warning-bg);
+}
+.alert-item.warning strong { color: var(--alert-warning-border); }
+
+.alert-item.critical {
+    border-left-color: var(--alert-critical-border);
+    background-color: var(--alert-critical-bg);
+}
+.alert-item.critical strong { color: var(--alert-critical-border); }
+
+
+/* === Bouton Retour === */
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--primary-blue); /* Texte en bleu */
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid var(--primary-blue); /* Bordure bleue */
+    border-radius: 20px; /* Bouton plus arrondi "pilule" */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: var(--primary-blue); /* Fond bleu au survol */
+    color: var(--bg-color-dark); /* Texte sombre au survol */
+    transform: translateY(-2px); /* Léger mouvement vers le haut */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 10px; padding: 15px; }
+    header h1 { text-align: center; font-size: 1.6em; }
+    nav a { padding: 8px 10px; margin: 0 2px; font-size: 0.9em; }
+    .container { margin: 20px auto; }
+    .content { padding: 20px; }
+    .content h2 { font-size: 1.6em; }
+    .content .description { font-size: 1em; }
+}

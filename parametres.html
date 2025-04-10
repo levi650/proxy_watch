@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres - ProxiWatch</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header>
+        <div class="logo-container">
+            <span>ProxiWatch</span>
+        </div>
+        <h1>Paramètres</h1>
+    </header>
+
+    <nav>
+        <a href="securite.html">Sécurité</a>
+        <a href="alertes.html">Alertes</a>
+        <a href="messages.html">Messages</a>
+        <a href="parametres.html" class="active">Paramètres</a> <a href="profil.html">Profil</a>
+    </nav>
+
+    <div class="container">
+        <section class="content settings-content">
+            <h2>Configuration des paramètres</h2>
+
+            <p class="description">
+                Personnalisez votre compte et l'application selon vos préférences : langue, affichage, notifications et options de confidentialité.
+            </p>
+
+            <div class="settings-section">
+                <h3>Préférences Générales</h3>
+                <div class="settings-item">
+                    <label for="language-select">Langue :</label>
+                    <select id="language-select" name="language">
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+                <div class="settings-item">
+                    <label for="theme-select">Thème d'affichage :</label>
+                    <select id="theme-select" name="theme">
+                        <option value="dark">Sombre (Actuel)</option>
+                        <option value="light">Clair</option>
+                        <option value="system">Système</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                 <div class="settings-item checkbox-item">
+                    <input type="checkbox" id="notif-email" name="notif-email" checked>
+                    <label for="notif-email">Recevoir les notifications importantes par email</label>
+                </div>
+                <div class="settings-item checkbox-item">
+                    <input type="checkbox" id="notif-push" name="notif-push">
+                    <label for="notif-push">Activer les notifications push sur cet appareil</label>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Confidentialité</h3>
+                <div class="settings-item checkbox-item">
+                    <input type="checkbox" id="privacy-stats" name="privacy-stats" checked>
+                    <label for="privacy-stats">Autoriser la collecte anonyme de statistiques d'utilisation</label>
+                </div>
+                 <div class="settings-item">
+                     <a href="/politique-confidentialite" class="text-link">Voir notre politique de confidentialité</a>
+                 </div>
+            </div>
+
+            <div class="settings-actions">
+                 <button type="submit" class="save-button">Enregistrer les modifications</button>
+            </div>
+
+
+            <a href="interface.html" class="back-button">⬅ Retour à l'accueil</a>
+        </section>
+    </div>
+
+</body>
+</html>

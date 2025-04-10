@@ -1,0 +1,199 @@
+/* Variables de couleur (optionnel, mais pratique) */
+:root {
+    --bg-color-dark: #0e1016;        /* Fond principal très sombre */
+    --bg-color-medium: #1e1e1e;     /* Fond légèrement moins sombre (nav, contenu) */
+    --text-color-light: #22e3dd;    /* Texte principal clair */
+    --text-color-secondary: #22e3dd; /* Texte secondaire moins vif */
+    --primary-blue: #90b4db;        /* Bleu principal pour accents */
+    --primary-blue-hover: #7a98b9;  /* Bleu plus foncé pour hover */
+    --border-color: #333;          /* Couleur des bordures */
+  }
+  
+  /* Styles généraux */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    line-height: 1.6;
+  }
+  
+  /* En-tête */
+  header {
+    background-color: var(--bg-color-medium);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; /* Espace entre logo et titre */
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .logo-container {
+    /* Style pour le conteneur du logo */
+    /* Si vous utilisez du texte comme ci-dessus : */
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-blue);
+  }
+  
+  .logo-container img {
+    /* Style pour l'image du logo si vous en mettez une */
+    display: block; /* Empêche l'espace sous l'image */
+    max-height: 40px; /* Ajustez la hauteur max */
+  }
+  
+  
+  header h1 {
+    margin: 0;
+    color: var(--text-color-light);
+    font-size: 1.8em;
+    text-align: right; /* Align title to the right */
+  }
+  
+  /* Barre de navigation */
+  nav {
+    background-color: var(--bg-color-medium);
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  nav a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: var(--primary-blue);
+    color: white;
+  }
+  
+  nav a.active { /* Style pour le lien de la page active */
+    color: var(--primary-blue);
+    font-weight: bold;
+    /* Ou pour un fond bleu :
+    background-color: var(--primary-blue);
+    color: white;
+    */
+  }
+  
+  /* Conteneur principal */
+  .container {
+    max-width: 700px; /* Largeur maximale du contenu */
+    margin: 30px auto; /* Centre le conteneur et ajoute de l'espace haut/bas */
+    padding: 0 20px; /* Espace sur les côtés pour petits écrans */
+  }
+  
+  /* Section de contenu */
+  .content {
+    background-color: var(--bg-color-medium);
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .content h2 {
+    color: var(--primary-blue);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+  
+  /* Formulaire */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espace entre les éléments du formulaire */
+  }
+  
+  label {
+    font-weight: bold;
+    color: var(--text-color-secondary);
+    margin-bottom: -5px; /* Réduit l'espace avant l'input */
+  }
+  
+  input[type="password"] {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color-dark); /* Fond un peu plus sombre */
+    color: var(--text-color-light);
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Léger halo bleu au focus */
+  }
+  
+  input::placeholder {
+    color: var(--text-color-secondary);
+    opacity: 0.7;
+  }
+  
+  button[type="submit"] {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Espace avant le bouton */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--primary-blue-hover);
+  }
+  
+  /* Bouton retour */
+  .back-button {
+    display: inline-block; /* Pour appliquer marge et padding */
+    margin-top: 25px;
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: var(--border-color);
+    color: var(--text-color-light);
+    border-color: #555;
+  }
+  
+  /* Responsive (optionnel mais recommandé) */
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column; /* Logo au-dessus du titre */
+      gap: 10px;
+      padding: 15px;
+    }
+    header h1 {
+      text-align: center;
+      font-size: 1.6em;
+    }
+    nav a {
+      padding: 8px 10px;
+      margin: 0 2px;
+      font-size: 0.9em;
+    }
+    .container {
+      margin: 20px auto;
+    }
+    .content {
+      padding: 20px;
+    }
+  }
