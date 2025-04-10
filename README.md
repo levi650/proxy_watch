@@ -25,9 +25,6 @@ The project consists of the following main components:
 1. Open `interface.html` in a web browser to access the main interface
 2. Navigate between pages using the provided links/buttons
 
-## Screenshots
-![Interface Screenshot](Capture%20d'écran%202025-04-08%20145622.png)
-
 ## Requirements
 - Modern web browser (Chrome, Firefox, Edge etc.)
 - No additional dependencies required
